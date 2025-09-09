@@ -9,22 +9,28 @@ import "./styles/app.css";
 export default function App() {
   const [activeGame, setActiveGame] = useState("home");
 
+  const renderGame = () => {
+    switch (activeGame) {
+      case "2048":
+        return <Game2048 />;
+      case "sudoku":
+        return <Sudoku />;
+      case "memory":
+        return <Memory />;
+      default:
+        return (
+          <div className="home">
+            <h1>🎮 Welcome to GamesHub</h1>
+            <p>Select a game from the menu to start playing!</p>
+          </div>
+        );
+    }
+  };
+
   return (
     <div className="app-container">
       <Navbar setActiveGame={setActiveGame} />
-
-      <main className="main-content">
-        {activeGame === "home" && (
-          <div className="welcome">
-            <h1>🎮 Welcome to GamesHub</h1>
-            <p>Select a game from the navigation bar to start playing!</p>
-          </div>
-        )}
-        {activeGame === "2048" && <Game2048 />}
-        {activeGame === "sudoku" && <Sudoku />}
-        {activeGame === "memory" && <Memory />}
-      </main>
-
+      <main className="game-section">{renderGame()}</main>
       <Footer />
     </div>
   );
