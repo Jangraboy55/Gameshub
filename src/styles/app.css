@@ -76,3 +76,53 @@ body {
   .score-box { min-width: 68px; padding:6px 8px; }
   .btn { padding:6px 10px; font-size:0.9rem; }
 }
+
+/* ------------- Sudoku styles ------------- */
+.sudoku { max-width:1100px; margin:16px auto; padding:12px; }
+.sudoku-header { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+.sudoku-header select { padding:8px 10px; border-radius:8px; border:none; background:rgba(255,255,255,0.06); color:#fff; }
+.sudoku-controls { display:flex; gap:8px; align-items:center; }
+
+.sudoku-body { display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap; justify-content:center; }
+
+/* board */
+.board { display:inline-block; background: rgba(255,255,255,0.02); padding:10px; border-radius:12px; }
+.board-row { display:flex; }
+.cell { width:44px; height:44px; border:1px solid rgba(255,255,255,0.04); display:flex; align-items:center; justify-content:center; cursor:pointer; position:relative; margin:1px; background:rgba(0,0,0,0.04); border-radius:6px; }
+.cell-inner { width:100%; height:100%; display:flex; align-items:center; justify-content:center; flex-direction:column; }
+.cell.selected { outline: 3px solid rgba(99,102,241,0.6); box-shadow:0 6px 18px rgba(2,6,23,0.6); }
+.cell.locked { background: rgba(255,255,255,0.03); color:#dbeafe; font-weight:700; cursor:default; }
+.cell .clue { font-weight:800; font-size:1rem; }
+.cell .cell-val { font-size:1rem; font-weight:600; }
+.cell.wrong { background: rgba(255,44,44,0.08); border-color: rgba(255,44,44,0.25); }
+
+/* thicker block borders */
+.board-row:nth-child(3n) .cell { border-bottom: 2px solid rgba(255,255,255,0.06); }
+.board-row .cell:nth-child(3n) { border-right: 2px solid rgba(255,255,255,0.06); }
+
+/* notes */
+.notes { display:flex; flex-wrap:wrap; gap:2px; font-size:10px; color:rgba(255,255,255,0.7); margin-top:2px; }
+.notes span { width:12px; height:12px; display:inline-flex; align-items:center; justify-content:center; }
+
+/* side panel */
+.side-panel { display:flex; flex-direction:column; gap:12px; min-width:220px; }
+.keypad { background: rgba(255,255,255,0.02); padding:8px; border-radius:10px; display:flex; flex-direction:column; gap:8px; }
+.keypad .row { display:flex; gap:8px; justify-content:center; }
+.num { padding:10px 14px; border-radius:8px; background:linear-gradient(90deg,#06b6d4,#3b82f6); border:none; color:#042028; font-weight:700; cursor:pointer; }
+.num.ghost { background:transparent; border:1px solid rgba(255,255,255,0.06); color:#fff; }
+.num.active { box-shadow:0 6px 18px rgba(2,6,23,0.5); outline:2px solid rgba(6,182,212,0.12); }
+
+.panel { background: rgba(255,255,255,0.03); padding:10px; border-radius:10px; text-align:left; color:rgba(255,255,255,0.9); }
+.panel h4 { margin:0 0 6px 0; }
+
+/* responsiveness */
+@media (max-width:900px) {
+  .sudoku-body { flex-direction:column; align-items:center; }
+  .side-panel { width:100%; min-width:auto; }
+  .board { max-width:420px; transform:scale(0.95); }
+  .cell { width:38px; height:38px; }
+}
+@media (max-width:420px) {
+  .cell { width:34px; height:34px; font-size:14px; }
+  .num { padding:8px 10px; }
+}
