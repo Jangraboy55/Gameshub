@@ -7,7 +7,6 @@ export default function Navbar({ setActiveGame }) {
       <ul>
         <li onClick={() => setActiveGame("home")}>🏠 Home</li>
         <li onClick={() => setActiveGame("2048")}>🔢 2048</li>
-        <li onClick={() => setActiveGame("sudoku")}>🧩 Sudoku</li>
         <li onClick={() => setActiveGame("memory")}>🃏 Memory</li>
       </ul>
     </nav>
