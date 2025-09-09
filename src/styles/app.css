@@ -21,3 +21,58 @@ body {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
+
+/* ----------------- 2048 specific styles ----------------- */
+.card { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 18px; box-shadow: 0 8px 30px rgba(2,6,23,0.6); margin: 12px auto; max-width: 520px; }
+.game-2048 .game-header { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+.game-2048 h3 { margin:0; font-size:1.1rem; }
+.game-2048 .muted { color: rgba(255,255,255,0.7); font-size:0.85rem; }
+
+.scoreboard { display:flex; gap:8px; align-items:center; }
+.score-box { background: rgba(255,255,255,0.06); padding:8px 10px; border-radius:8px; text-align:center; min-width:80px; }
+.score-label { font-size:0.75rem; color:rgba(255,255,255,0.7); }
+.score-value { font-weight:700; font-size:1rem; }
+
+.controls { display:flex; gap:10px; justify-content:center; margin-bottom:12px; }
+.btn { background:linear-gradient(90deg,#06b6d4,#3b82f6); border:none; color:#042028; padding:8px 12px; border-radius:8px; cursor:pointer; font-weight:700; }
+.btn.ghost { background:transparent; border:1px solid rgba(255,255,255,0.06); color:#fff; }
+
+.board-wrap { display:flex; justify-content:center; margin-top:8px; padding:10px; }
+.grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; width:100%; max-width:420px; aspect-ratio:1 / 1; }
+
+/* tile base */
+.tile { border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.1rem; transition: transform 120ms ease, box-shadow 140ms ease; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15); }
+.tile-empty { background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.3); }
+
+/* colors by value */
+.tile-2 { background:#f4f3ec; color:#776e65; }
+.tile-4 { background:#ede0c8; color:#776e65; }
+.tile-8 { background:#f2b179; color:#fff; }
+.tile-16 { background:#f59563; color:#fff; }
+.tile-32 { background:#f67c5f; color:#fff; }
+.tile-64 { background:#f65e3b; color:#fff; }
+.tile-128 { background:#edcf72; color:#fff; font-size:0.95rem; }
+.tile-256 { background:#edcc61; color:#fff; font-size:0.95rem; }
+.tile-512 { background:#edc850; color:#fff; font-size:0.9rem; }
+.tile-1024 { background:#3c9; color:#fff; font-size:0.85rem; }
+.tile-2048 { background:linear-gradient(90deg,#ffd166,#f97316); color:#fff; font-size:0.85rem; }
+
+/* animations */
+.anim-new { transform: scale(0.3); animation: popIn 180ms ease forwards; }
+.anim-merge { transform: scale(1.05); animation: popIn 220ms cubic-bezier(.2,.8,.2,1) forwards; }
+
+@keyframes popIn {
+  from { transform: scale(0.3); opacity:0; }
+  to { transform: scale(1); opacity:1; }
+}
+
+/* overlay */
+.overlay { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; background: rgba(2,6,23,0.6); border-radius:12px; margin-top:8px; }
+.overlay-card { background:#071228; padding:20px; border-radius:10px; text-align:center; box-shadow:0 10px 30px rgba(2,6,23,0.7); }
+
+/* responsive tweaks */
+@media (max-width:460px) {
+  .grid { gap:8px; max-width: 340px; }
+  .score-box { min-width: 68px; padding:6px 8px; }
+  .btn { padding:6px 10px; font-size:0.9rem; }
+}
