@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Game2048 from "./games/Game2048";
-import Sudoku from "./games/Sudoku.jsx";
 import Memory from "./games/Memory";
 import "./styles/app.css";
 
@@ -13,8 +12,6 @@ export default function App() {
     switch (activeGame) {
       case "2048":
         return <Game2048 />;
-      case "sudoku":
-        return <Sudoku />;
       case "memory":
         return <Memory />;
       default:
