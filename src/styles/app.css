@@ -1,25 +1,53 @@
-body {
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(120deg, #1e3c72, #2a5298);
-  color: #fff;
-}
-
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-.main-content {
+.navbar {
+  background: #1f1f1f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 2px solid #333;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f1c40f;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar li {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar li:hover {
+  color: #f39c12;
+}
+
+.game-section {
   flex: 1;
-  padding: 2rem;
+  padding: 20px;
   text-align: center;
 }
 
-.welcome h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.footer {
+  background: #1f1f1f;
+  padding: 12px;
+  text-align: center;
+  border-top: 2px solid #333;
 }
 
 /* ----------------- 2048 specific styles ----------------- */
