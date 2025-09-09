@@ -126,3 +126,43 @@ body {
   .cell { width:34px; height:34px; font-size:14px; }
   .num { padding:8px 10px; }
 }
+
+/* ------------- Memory game styles ------------- */
+.memory { max-width:900px; margin:18px auto; padding:12px; }
+.memory-header { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+.memory-header h3 { margin:0; }
+.memory-stats { display:flex; gap:10px; align-items:center; }
+.score-box { background: rgba(255,255,255,0.04); padding:8px 10px; border-radius:8px; text-align:center; min-width:80px; }
+.score-label { font-size:0.75rem; color:rgba(255,255,255,0.7); }
+.score-value { font-weight:700; font-size:1rem; }
+
+/* controls */
+.memory-controls { display:flex; gap:8px; align-items:center; justify-content:center; margin-bottom:14px; flex-wrap:wrap; }
+.memory-controls select { padding:8px 10px; border-radius:8px; background:rgba(255,255,255,0.03); color:#fff; border:none; }
+
+/* deck */
+.deck-wrap { display:flex; justify-content:center; }
+.deck-grid { display:grid; gap:10px; width:100%; max-width:720px; }
+.card-item { background: transparent; perspective: 800px; cursor: pointer; height: 0; padding-bottom: 100%; position: relative; border-radius:10px; }
+.card-inner { position:absolute; inset:0; transition: transform 420ms cubic-bezier(.2,.9,.3,1); transform-style: preserve-3d; }
+.card-item.flipped .card-inner { transform: rotateY(180deg); }
+.card-front, .card-back { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; border-radius:10px; backface-visibility: hidden; font-size:28px; font-weight:800; }
+.card-front { background: linear-gradient(90deg,#0ea5a7,#3b82f6); color:#042028; transform: rotateY(0); box-shadow: 0 8px 20px rgba(2,6,23,0.6); }
+.card-back { background: rgba(255,255,255,0.96); color:#042028; transform: rotateY(180deg); }
+
+/* matched */
+.card-item.matched .card-inner { transform: scale(1.02); opacity: 0.9; }
+.card-item.matched .card-back { background: linear-gradient(90deg,#fde68a,#f97316); color:#042028; }
+
+/* footer */
+.memory-footer { display:flex; gap:20px; justify-content:center; margin-top:12px; color:rgba(255,255,255,0.9); }
+
+/* responsive */
+@media (max-width:720px) {
+  .deck-grid { max-width:520px; gap:8px; }
+  .card-front, .card-back { font-size:20px; }
+}
+@media (max-width:420px) {
+  .deck-grid { gap:6px; }
+  .card-front, .card-back { font-size:18px; }
+}
