@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Game2048 from "./games/Game2048";
-import Sudoku from "./games/Sudoku.jsx";
+import Sudoku from "./games/Sudoku";
 import Memory from "./games/Memory";
 import "./styles/app.css";
 
